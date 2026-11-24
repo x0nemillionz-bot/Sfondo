@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:"Arial Black",Impact,sans-serif}
+#w{position:absolute;inset:3% 3%;border:2px solid #ff2bd6;border-radius:14px;box-shadow:0 0 14px #ff2bd6,inset 0 0 14px rgba(255,43,214,.45);background:linear-gradient(160deg,rgba(20,0,40,.78),rgba(0,25,45,.78));display:flex;flex-direction:column;align-items:center;justify-content:center}
+.r{display:flex;align-items:center;justify-content:center}
+.d{position:relative;overflow:hidden;width:19vw;height:27vh;margin:0 .6vw;display:flex;align-items:center;justify-content:center;font-size:23vh;line-height:1;color:#7df9ff;text-shadow:0 0 6px #7df9ff,0 0 16px #00cfff,0 0 30px #00a5ff}
+.s .d{width:15vw;height:19vh;font-size:16vh;color:#ff7be9;text-shadow:0 0 6px #ff7be9,0 0 16px #ff2bd6,0 0 30px #ff2bd6}
+.d i{font-style:normal;display:block}
+.f i{animation:fl .42s cubic-bezier(.2,.9,.25,1)}
+@keyframes fl{0%{transform:translateY(-120%) scale(1.35);opacity:0;filter:blur(5px)}60%{opacity:1;filter:blur(0)}100%{transform:none;opacity:1}}
+.c{font-size:20vh;color:#7df9ff;text-shadow:0 0 8px #00cfff;margin:0 .2vw;animation:b 1s steps(1) infinite;height:25vh;display:flex;align-items:center}
+@keyframes b{50%{opacity:.15}}
+</style></head><body><div id="w"><div class="r" id="a"></div><div class="r s" id="b"></div></div><script>
+var a=document.getElementById('a'),b=document.getElementById('b'),els=[];
+function mk(p,n){var e=document.createElement('span');e.className='d';e.innerHTML='<i>0</i>';p.appendChild(e);els.push(e)}
+mk(a,0);mk(a,1);var c=document.createElement('span');c.className='c';c.textContent=':';a.appendChild(c);mk(a,2);mk(a,3);mk(b,4);mk(b,5);
+var last='';
+function t(){var s;try{s=new Date().toLocaleTimeString('it-IT',{timeZone:'Europe/Rome',hour12:false})}catch(e){s=new Date().toTimeString().slice(0,8)}
+var dg=s.replace(/\D/g,'').slice(0,6);if(dg.length<6)return;
+for(var i=0;i<6;i++){if(dg[i]!==last[i]){var e=els[i];e.firstChild.textContent=dg[i];e.classList.remove('f');void e.offsetWidth;e.classList.add('f')}}
+last=dg}
+t();setInterval(t,200);
+</script></body></html>
